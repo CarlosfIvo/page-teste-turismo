@@ -22,7 +22,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* evita que o header fixo cubra o título das seções */
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -42,7 +42,6 @@ img {
   outline-offset: 3px;
 }
 
-/* CABEÇALHO COM GLASSMORPHISM ESCURO */
 .header {
   position: fixed;
   top: 0;
@@ -133,7 +132,6 @@ img {
   transition: var(--transition);
 }
 
-/* Botão vira "X" quando o menu está aberto */
 .menu-toggle.active .bar:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
@@ -146,7 +144,6 @@ img {
   transform: translateY(-8px) rotate(-45deg);
 }
 
-/* SEÇÃO HERO DINÂMICA */
 .hero {
   min-height: 92vh;
   display: flex;
@@ -284,7 +281,6 @@ img {
   transform: translateY(-2px);
 }
 
-/* DESTINOS E FILTROS */
 .destinations {
   padding: 6rem 2rem;
   max-width: 1200px;
@@ -368,7 +364,6 @@ img {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
 }
 
-/* Faixa que aparece quando a busca do hero está ativa */
 .search-result {
   display: flex;
   flex-wrap: wrap;
@@ -496,7 +491,6 @@ img {
   color: #60a5fa;
 }
 
-/* CONTATO */
 .contact {
   max-width: 1200px;
   margin: 0 auto;
@@ -531,7 +525,6 @@ img {
   gap: 1rem;
 }
 
-/* RODAPÉ */
 .footer {
   border-top: 1px solid var(--border);
   padding: 2rem;
@@ -540,13 +533,11 @@ img {
   font-size: 0.9rem;
 }
 
-/* SEM JAVASCRIPT: cards continuam visíveis */
 .no-js .destination-card {
   opacity: 1;
   transform: none;
 }
 
-/* RESPONSIVIDADE */
 @media (max-width: 768px) {
   .nav-container {
     padding: 1rem;
@@ -574,7 +565,6 @@ img {
     padding: 0 1rem 4rem;
   }
 
-  /* Menu mobile: painel que abre abaixo do header */
   .nav-menu {
     display: none;
     position: absolute;
@@ -608,7 +598,6 @@ img {
   }
 }
 
-/* ACESSIBILIDADE: respeita quem prefere menos movimento */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

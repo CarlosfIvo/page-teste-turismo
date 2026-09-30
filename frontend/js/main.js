@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Se o JS carregou, remove o fallback "sem JavaScript" do CSS
   document.documentElement.classList.remove("no-js");
 
   const prefersReducedMotion = window.matchMedia(
@@ -18,10 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchResultText = document.getElementById("search-result-text");
   const searchClear = document.getElementById("search-clear");
 
-  // ANIMAÇÃO ESCALONADA DE ENTRADA DOS CARDS
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
-      let order = 0; // conta só quem entrou na tela, para o escalonamento ficar uniforme
+      let order = 0;
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const card = entry.target;
@@ -35,8 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   cards.forEach((card) => revealObserver.observe(card));
 
-  // EXIBIÇÃO DOS CARDS (usada pelos filtros e pela busca)
-  // Usa classes e o atributo hidden (sem style inline), para o hover do card continuar funcionando.
   const HIDE_DELAY = 300;
 
   function showCards(predicate) {
@@ -45,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
       clearTimeout(card.hideTimer);
 
       if (predicate(card)) {
-        revealObserver.unobserve(card); // aqui a exibição é controlada manualmente
+        revealObserver.unobserve(card);
         if (card.hidden) {
           card.hidden = false;
-          void card.offsetWidth; // força o layout antes da transição
+          void card.offsetWidth;
         }
         setTimeout(() => card.classList.add("visible"), order * 80);
         order++;
@@ -89,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
-  // BUSCA RÁPIDA DO HERO
   let errorTimer;
 
   function showSearchError() {
@@ -110,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   destinationSelect.addEventListener("change", clearSearchError);
 
-  // Mostra apenas o destino escolhido e leva o usuário até ele
   searchBtn.addEventListener("click", () => {
     const selectedValue = destinationSelect.value;
     if (!selectedValue) {
@@ -125,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
     if (!target) return;
 
-    setActiveFilter(null); // nenhum filtro de categoria fica marcado durante a busca
+    setActiveFilter(null);
     showCards((card) => card === target);
 
     searchResultText.textContent = target.querySelector("h3").textContent;
@@ -136,16 +130,13 @@ document.addEventListener("DOMContentLoaded", () => {
       .scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth" });
   });
 
-  // "Ver todos os destinos" desfaz a busca
   searchClear.addEventListener("click", () => applyFilter("all"));
 
-  // HEADER NO SCROLL (estilo definido na classe .scrolled do CSS)
   const updateHeader = () =>
     header.classList.toggle("scrolled", window.scrollY > 30);
   window.addEventListener("scroll", updateHeader, { passive: true });
   updateHeader();
 
-  // MENU MOBILE
   function setMenu(open) {
     navMenu.classList.toggle("open", open);
     menuToggle.classList.toggle("active", open);
@@ -169,7 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.matches) setMenu(false);
   });
 
-  // LINK ATIVO NO MENU CONFORME A SEÇÃO VISÍVEL
   const navLinks = document.querySelectorAll(".nav-link:not(.btn-cta)");
   const sectionObserver = new IntersectionObserver(
     (entries) => {
