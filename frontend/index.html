@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pacotes de viagem nacionais e internacionais com atendimento profissional do início ao fim."
+    />
+    <meta name="theme-color" content="#090d16" />
+    <title>Horizonte Viagens | Pacotes e Destinos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Ajuste o nome do arquivo se o seu CSS tiver outro nome -->
+    <link rel="stylesheet" href="/frontend/css/style.css" />
+  </head>
+  <body>
+    <!-- CABEÇALHO -->
+    <header class="header">
+      <div class="nav-container">
+        <a href="#inicio" class="logo">Horizonte<span>Viagens</span></a>
+
+        <nav class="nav-menu" aria-label="Navegação principal">
+          <a href="#inicio" class="nav-link active">Início</a>
+          <a href="#destinos" class="nav-link">Destinos</a>
+          <a href="#contato" class="nav-link">Contato</a>
+          <a href="#contato" class="nav-link btn-cta">Solicitar orçamento</a>
+        </nav>
+
+        <button
+          class="menu-toggle"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO COM BUSCA RÁPIDA -->
+      <section class="hero" id="inicio">
+        <div class="hero-content">
+          <span class="badge">Pacotes 2026</span>
+          <h1>Sua próxima viagem começa com um bom planejamento</h1>
+          <p>
+            Roteiros nacionais e internacionais com hospedagem, passagens e
+            suporte durante toda a viagem.
+          </p>
+
+          <div class="hero-search-box">
+            <div class="search-input-group">
+              <label for="destination-select">Para onde você quer ir?</label>
+              <select id="destination-select">
+                <option value="">Selecione um destino</option>
+                <option value="maragogi">Maragogi, AL</option>
+                <option value="noronha">Fernando de Noronha, PE</option>
+                <option value="gramado">Gramado, RS</option>
+                <option value="lencois">Lençóis Maranhenses, MA</option>
+                <option value="lisboa">Lisboa, Portugal</option>
+                <option value="paris">Paris, França</option>
+              </select>
+              <p class="search-error" id="search-error" role="alert" hidden>
+                Selecione um destino para continuar.
+              </p>
+            </div>
+            <button class="btn btn-primary" id="search-btn" type="button">
+              Ver destinos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- DESTINOS -->
+      <section class="destinations" id="destinos">
+        <div class="section-title">
+          <h2>Destinos em destaque</h2>
+          <p>Escolha uma categoria e veja os pacotes disponíveis.</p>
+        </div>
+
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="praia">Praias</button>
+          <button class="filter-btn" data-filter="natureza">Natureza</button>
+          <button class="filter-btn" data-filter="internacional">
+            Internacional
+          </button>
+        </div>
+
+        <div class="search-result" id="search-result" hidden>
+          <p>Mostrando: <strong id="search-result-text"></strong></p>
+          <button type="button" class="search-clear" id="search-clear">
+            Ver todos os destinos
+          </button>
+        </div>
+
+        <div class="destinations-grid">
+          <article
+            class="destination-card"
+            data-destination="maragogi"
+            data-category="praia"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop"
+                alt="Piscinas naturais de águas cristalinas em Maragogi"
+                loading="lazy"
+              />
+              <span class="tag-badge">Praia</span>
+              <span class="price">a partir de R$ 2.190</span>
+            </div>
+            <div class="card-body">
+              <h3>Maragogi, Alagoas</h3>
+              <p>
+                Passeio de catamarã às galés, hospedagem à beira-mar e traslados
+                inclusos.
+              </p>
+              <div class="card-footer">
+                <span class="duration">5 dias / 4 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="destination-card"
+            data-destination="noronha"
+            data-category="praia"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=800&auto=format&fit=crop"
+                alt="Mar azul e faixa de areia em Fernando de Noronha"
+                loading="lazy"
+              />
+              <span class="tag-badge">Praia</span>
+              <span class="price">a partir de R$ 4.850</span>
+            </div>
+            <div class="card-body">
+              <h3>Fernando de Noronha, Pernambuco</h3>
+              <p>
+                Pousada, passagens aéreas, taxa de preservação e mergulho de
+                batismo.
+              </p>
+              <div class="card-footer">
+                <span class="duration">6 dias / 5 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="destination-card"
+            data-destination="gramado"
+            data-category="natureza"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=800&auto=format&fit=crop"
+                alt="Montanhas com neblina ao amanhecer"
+                loading="lazy"
+              />
+              <span class="tag-badge">Natureza</span>
+              <span class="price">a partir de R$ 3.290</span>
+            </div>
+            <div class="card-body">
+              <h3>Gramado, Rio Grande do Sul</h3>
+              <p>
+                Roteiro pela Serra Gaúcha com city tour, parques e jantar
+                típico.
+              </p>
+              <div class="card-footer">
+                <span class="duration">5 dias / 4 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="destination-card"
+            data-destination="lencois"
+            data-category="natureza"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=800&auto=format&fit=crop"
+                alt="Lago cercado por montanhas"
+                loading="lazy"
+              />
+              <span class="tag-badge">Natureza</span>
+              <span class="price">a partir de R$ 3.750</span>
+            </div>
+            <div class="card-body">
+              <h3>Lençóis Maranhenses, Maranhão</h3>
+              <p>
+                Passeios de 4x4 pelas dunas e lagoas, com guia local e
+                hospedagem em Barreirinhas.
+              </p>
+              <div class="card-footer">
+                <span class="duration">6 dias / 5 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="destination-card"
+            data-destination="lisboa"
+            data-category="internacional"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop"
+                alt="Rua histórica de Lisboa com bonde"
+                loading="lazy"
+              />
+              <span class="tag-badge">Internacional</span>
+              <span class="price">a partir de R$ 7.400</span>
+            </div>
+            <div class="card-body">
+              <h3>Lisboa, Portugal</h3>
+              <p>
+                Passagens, hotel no centro histórico e passeio de um dia por
+                Sintra e Cascais.
+              </p>
+              <div class="card-footer">
+                <span class="duration">8 dias / 7 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+
+          <article
+            class="destination-card"
+            data-destination="paris"
+            data-category="internacional"
+          >
+            <div class="card-image">
+              <img
+                src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800&auto=format&fit=crop"
+                alt="Torre Eiffel ao entardecer em Paris"
+                loading="lazy"
+              />
+              <span class="tag-badge">Internacional</span>
+              <span class="price">a partir de R$ 9.900</span>
+            </div>
+            <div class="card-body">
+              <h3>Paris, França</h3>
+              <p>
+                Passagens, hospedagem, cruzeiro pelo Sena e ingressos para os
+                principais museus.
+              </p>
+              <div class="card-footer">
+                <span class="duration">9 dias / 8 noites</span>
+                <a href="#contato" class="card-link">Ver pacote</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section class="contact" id="contato">
+        <div class="contact-box">
+          <h2>Vamos planejar a sua viagem?</h2>
+          <p>
+            Conte para a nossa equipe o destino e as datas que você tem em mente
+            e receba um orçamento sem compromisso.
+          </p>
+          <div class="contact-actions">
+            <a
+              href="https://wa.me/5500000000000"
+              class="btn btn-primary"
+              target="_blank"
+              rel="noopener"
+              >Falar no WhatsApp</a
+            >
+            <a
+              href="mailto:contato@horizonteviagens.com.br"
+              class="btn btn-outline"
+              >Enviar e-mail</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Horizonte Viagens. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>
